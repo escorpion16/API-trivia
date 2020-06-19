@@ -8,14 +8,22 @@ function getCategories(){
     fetch(endpointCategories)
     .then((response) => response.json())
     .then((dataJson) => {
-        printCategories(dataJson)
+        printCategories(dataJson.trivia_categories)
     })
     .catch((error) => console.error(error))
 }
 
+// 1. obtener elemento donde se desea imprimir
+// 2. generar HTML
+// 3. imprimir informacion
 
 function printCategories(categories){
-    console.log(categories)
+    const selectCategories = document.querySelector('#select-categories')
+    let html = ''
+    categories.forEach(category => {
+        html += `<option>${category.name}</option>`
+    });
+    selectCategories.innerHTML = html
 }
 
 getCategories()
