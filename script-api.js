@@ -21,9 +21,15 @@ function printCategories(categories){
     const selectCategories = document.querySelector('#select-categories')
     let html = ''
     categories.forEach(category => {
-        html += `<option>${category.name}</option>`
+        html += `<option value='${category.id}'>${category.name}</option>`
     });
     selectCategories.innerHTML = html
 }
+
+function getCategoriesID(){
+    const categoryID = document.getElementById('select-categories').value
+    console.log(`ha seleccionado la categoria que tiene el id ${categoryID}`)
+}
+
 
 getCategories()
